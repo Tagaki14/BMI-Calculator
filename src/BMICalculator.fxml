@@ -1,90 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
+<AnchorPane prefHeight="680.0" prefWidth="560.0"
+            style="-fx-background-color: #F3F6FB;"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="application.BMICalculatorController">
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BMICalculatorController">
-   <children>
-      <GridPane prefHeight="400.0" prefWidth="400.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <Text layoutX="28.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Body Mass Index Calculator">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="28.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enetr your credentials:">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <children>
-                  <TextField fx:id="inchesInput" alignment="CENTER" layoutX="-51.0" layoutY="23.0" prefHeight="26.0" prefWidth="97.0" promptText="Inches" />
-                  <TextField fx:id="centimetersInput" alignment="CENTER" layoutX="85.0" layoutY="23.0" prefHeight="26.0" prefWidth="97.0" promptText="centimeters" />
-                  <TextField fx:id="poundsInput" alignment="CENTER" layoutX="-47.0" layoutY="86.0" prefHeight="26.0" prefWidth="97.0" promptText="Pounds" />
-                  <TextField fx:id="kilosInput" alignment="CENTER" layoutX="86.0" layoutY="86.0" prefHeight="26.0" prefWidth="97.0" promptText="Kilos" />
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-               <children>
-                  <Text layoutX="30.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Height">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="30.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-               <children>
-                  <Text layoutX="30.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BMI Value :">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="29.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BMI Catagory :">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <children>
-                  <TextField fx:id="bmiCategory" editable="false" layoutX="-35.0" layoutY="75.0" prefHeight="26.0" prefWidth="112.0" />
-                  <Button fx:id="calculateButton" layoutX="95.0" layoutY="28.0" mnemonicParsing="false" onAction="#calculate" prefHeight="84.0" prefWidth="89.0" text="Calculate" textAlignment="CENTER" underline="true">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Button>
-                  <TextField fx:id="bmiOutput" editable="false" layoutX="-35.0" layoutY="37.0" prefHeight="26.0" prefWidth="112.0" />
-               </children>
-            </AnchorPane>
-         </children>
-      </GridPane>
-   </children>
+    <children>
+        <VBox alignment="TOP_CENTER" spacing="20"
+              AnchorPane.topAnchor="25"
+              AnchorPane.bottomAnchor="25"
+              AnchorPane.leftAnchor="35"
+              AnchorPane.rightAnchor="35">
+
+            <VBox spacing="5">
+                <Label text="BMI Calculator"
+                       style="-fx-text-fill: #172B4D; -fx-font-size: 28px; -fx-font-weight: bold;"/>
+                <Label text="Calculate your Body Mass Index"
+                       style="-fx-text-fill: #718096; -fx-font-size: 14px;"/>
+            </VBox>
+
+            <VBox spacing="14"
+                  style="-fx-background-color: white; -fx-background-radius: 16; -fx-padding: 22;">
+                <Label text="Measurement Units"
+                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #263B5A;"/>
+
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <RadioButton fx:id="metricRadio" text="Metric (kg / cm)"
+                                 selected="true" onAction="#selectMetric"/>
+                    <RadioButton fx:id="imperialRadio" text="Imperial (lbs / inches)"
+                                 onAction="#selectImperial"/>
+                </HBox>
+
+                <Separator/>
+
+                <Label text="Height"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                <TextField fx:id="centimetersInput" promptText="Height in centimeters"
+                           prefHeight="42" style="-fx-background-radius: 8;"/>
+                <TextField fx:id="inchesInput" promptText="Height in inches"
+                           prefHeight="42" style="-fx-background-radius: 8;"
+                           visible="false" managed="false"/>
+
+                <Label text="Weight"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                <TextField fx:id="kilosInput" promptText="Weight in kilograms"
+                           prefHeight="42" style="-fx-background-radius: 8;"/>
+                <TextField fx:id="poundsInput" promptText="Weight in pounds"
+                           prefHeight="42" style="-fx-background-radius: 8;"
+                           visible="false" managed="false"/>
+
+                <HBox spacing="12">
+                    <Button text="Calculate BMI" onAction="#calculate"
+                            maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                            prefHeight="44"
+                            style="-fx-background-color: #2563EB; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 9; -fx-cursor: hand;"/>
+                    <Button text="Reset" onAction="#reset"
+                            prefWidth="100" prefHeight="44"
+                            style="-fx-background-color: #E8EEF8; -fx-text-fill: #263B5A; -fx-background-radius: 9; -fx-cursor: hand;"/>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="12"
+                  style="-fx-background-color: white; -fx-background-radius: 16; -fx-padding: 22;">
+                <Label text="Your BMI Result"
+                       style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-text-fill: #263B5A;"/>
+
+                <TextField fx:id="bmiOutput" text="--"
+                           editable="false" alignment="CENTER"
+                           prefHeight="65"
+                           style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2563EB; -fx-background-color: #F3F6FB; -fx-background-radius: 10;"/>
+
+                <Label fx:id="bmiCategory" text="Enter your measurements"
+                       alignment="CENTER" maxWidth="Infinity"
+                       style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #718096; -fx-background-color: #F3F6FB; -fx-background-radius: 8; -fx-padding: 12;"/>
+
+                <Label text="BMI Category Guide"
+                       style="-fx-font-weight: bold; -fx-text-fill: #263B5A;"/>
+
+                <VBox spacing="7">
+                    <Label text="Underweight       Below 18.5"
+                           style="-fx-text-fill: #3B82F6;"/>
+                    <Label text="Normal Weight    18.5 – 24.9"
+                           style="-fx-text-fill: #16A34A;"/>
+                    <Label text="Overweight         25 – 29.9"
+                           style="-fx-text-fill: #D97706;"/>
+                    <Label text="Obese                   30 and above"
+                           style="-fx-text-fill: #DC2626;"/>
+                </VBox>
+            </VBox>
+
+            <Label text="BMI Calculator • JavaFX Application"
+                   style="-fx-text-fill: #94A3B8; -fx-font-size: 11px;"/>
+
+        </VBox>
+    </children>
 </AnchorPane>
