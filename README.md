@@ -1,24 +1,60 @@
-# BMI-Calculator
+# BMI Calculator
 
-•	Building application using the scene builder with Java FX.
+Aplikasi Kalkulator Indeks Massa Tubuh (BMI) berbasis desktop yang dibuat menggunakan Java dan JavaFX.
 
-•	Take user input and assign them to weight value and height value inputs.
-• Calculate button which will handle the calculation of the body mass index.
+## Fitur Aplikasi
 
-•	On press of Calculate button: calculate BMI using these formulas:
-	If pounds and inches: (weight in pounds * 703 / (inches*inches) )
-or
-	If kilos and centimeters: (weight in kilos / ( (cm*cm ) / 10000) )
+- Menghitung BMI menggunakan satuan Metric (kg/cm).
+- Menghitung BMI menggunakan satuan Imperial (lbs/inches).
+- Menampilkan hasil perhitungan BMI.
+- Menampilkan kategori berat badan berdasarkan nilai BMI.
+- Validasi input untuk mencegah data yang tidak valid.
+- Tombol Reset untuk menghapus seluruh input dan hasil perhitungan.
 
-• Assign the output to BMI Value.
+## Teknologi yang Digunakan
 
-•	Use BMI value to get BMI output and BMI category:
-o	Bmi output will print BMI value
-o	Bmi category depends on BMI value as follows:
-	If BMI <= 18.5  ---> underweight
-	If a BMI between 18.5 and 24.9  ---> normal weight
-	If a BMI between 25 and 29.9  ---> overweight
-	If BMI >= 30 ---> obese
-o	Output one of these categories to BMI category
+- Java
+- JavaFX
+- Maven
+- FXML
+- NetBeans IDE
 
+## Persyaratan Sistem
 
+- JDK 25 atau versi yang kompatibel.
+- Maven 3.9 atau versi lebih baru.
+
+## Cara Menjalankan Aplikasi
+
+1. Clone repository:
+   ```bash
+   git clone https://github.com/Tagaki14/BMI-Calculator.git
+   ```
+
+2. Masuk ke direktori proyek:
+   ```bash
+   cd BMI-Calculator
+   ```
+
+3. Jalankan aplikasi menggunakan Maven:
+   ```bash
+   mvn clean javafx:run
+   ```
+
+## Kategori BMI
+
+| Nilai BMI | Kategori |
+|---|---|
+| Di bawah 18.5 | Berat Badan Kurang |
+| 18.5 – 24.9 | Berat Badan Normal |
+| 25 – 29.9 | Kelebihan Berat Badan |
+| 30 ke atas | Obesitas |
+
+## Screenshot Aplikasi
+<img width="561" height="832" alt="gambar" src="https://github.com/user-attachments/assets/4b187c36-7158-4a25-aa94-678f8cb0741d" />
+
+![Tampilan Aplikasi BMI Calculator](bmi-calculator.png)
+
+## Pengembang
+
+**Tagaki14**
